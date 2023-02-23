@@ -10,11 +10,11 @@ import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [MyDayComponent],
   imports: [
-    CommonModule,
     IonicModule,
     FormsModule,
-    RouterModule.forChild([{path: '', component: MyDayComponent}]),
+  RouterModule.forChild([{path: '', component: MyDayComponent}]),
 
-  ]
+  ],
+  exports: [MyDayComponent]
 })
 export class MyDayModule { }

@@ -10,11 +10,11 @@ import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [NotificationsComponent],
   imports: [
-    CommonModule,
     IonicModule,
     FormsModule,
-    RouterModule.forChild([{path: '', component: NotificationsComponent}]),
+   RouterModule.forChild([{path: '', component: NotificationsComponent}]),
 
-  ]
+  ],
+  exports: [NotificationsComponent]
 })
 export class NotificationsModule { }

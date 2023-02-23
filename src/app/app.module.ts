@@ -2,38 +2,32 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { TabsModule } from './tabs/tabs.module';
-import { NotificationsModule } from './notifications/notifications.module';
-import { MyDayModule } from './my-day/my-day.module';
-import { MoreModule } from './more/more.module';
-import { HomeModule } from './home/home.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { AirplaneComponent } from './airplane/airplane.component';
+import { TabsComponent } from './tabs/tabs.component';
+import { RouteReuseStrategy } from '@angular/router';
+import { EditFlightsComponent } from './edit-flights/edit-flights.component';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
+  declarations: [AppComponent, AirplaneComponent, TabsComponent, EditFlightsComponent, MessagesComponent],
   imports: [
-    BrowserAnimationsModule,
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    TabsModule,
-    NotificationsModule,
-    MyDayModule,
-    MoreModule,
-    HomeModule,
     IonicModule.forRoot(),
-    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: RouteReuseStrategy,
+      useClass: IonicRouteStrategy,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

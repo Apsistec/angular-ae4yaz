@@ -1,5 +1,17 @@
-
 <ion-content>
+<ion-segment value="default">
+  <ion-segment-button value="default">
+    <ion-label>My Flights</ion-label>
+  </ion-segment-button>
+  <ion-segment-button value="segment">
+    <ion-label>All Flights</ion-label>
+  </ion-segment-button>
+</ion-segment>
 
-
+<ion-list>
+  <ion-list-header>Notifications
+  </ion-list-header>
+  <app-messages *ngFor="let message of messageService.messages | async" [message]="message" >
+  </app-messages>
+</ion-list>
 </ion-content>

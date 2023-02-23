@@ -10,11 +10,11 @@ import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [MoreComponent],
   imports: [
-    CommonModule,
     IonicModule,
     FormsModule,
     RouterModule.forChild([{path: '', component: MoreComponent}]),
 
-  ]
+  ],
+  exports: [MoreComponent]
 })
 export class MoreModule { }

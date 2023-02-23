@@ -10,10 +10,10 @@ import { HomeComponent } from './home.component';
 @NgModule({
   declarations: [HomeComponent],
   imports: [
-    RouterModule.forChild([{path: '', component: HomeComponent}]),
-    CommonModule,
+     RouterModule.forChild([{path: '', component: HomeComponent}]),
     IonicModule,
     FormsModule,
-  ]
+  ],
+  exports: [HomeComponent]
 })
 export class HomeModule { }
