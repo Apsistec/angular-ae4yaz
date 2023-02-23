@@ -1,0 +1,81 @@
+<ion-menu contentId="main-content">
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+      <ion-title>Baggage App</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">This is the menu content.</ion-content>
+</ion-menu>
+<div class="ion-page" id="main-content">
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+      <img src="https://github.com/ionic-team/ionicons/blob/main/src/svg/airplane.svg">
+    </ion-buttons>
+
+    <ion-title>Baggage</ion-title>
+    <ion-icon
+      size="large"
+      style="padding-right: 5px;"
+      slot="end"
+      id="popover-button"
+      name="person-circle-outline"
+    ></ion-icon>
+    <ion-popover trigger="popover-button" [dismissOnSelect]="true">
+      <ng-template>
+        <ion-content>
+          <ion-list>
+            <ion-item [button]="true" [detail]="false"
+              >user@alaskaair.com</ion-item
+            >
+            <ion-item [button]="true" [detail]="false">
+              <ion-text color="medium"> Profile </ion-text>
+              <ion-icon slot="end" name="person-circle-outline"></ion-icon>
+            </ion-item>
+            <ion-item [button]="true" id="nested-trigger">
+              <ion-text color="medium"> More options... </ion-text>
+            </ion-item>
+            <ion-item [button]="true" [detail]="false">
+              <ion-text color="danger"> Logout </ion-text>
+              <ion-icon
+                slot="end"
+                name="log-out-outline"
+                color="danger"
+              ></ion-icon>
+            </ion-item>
+
+            <ion-popover
+              trigger="nested-trigger"
+              [dismissOnSelect]="true"
+              side="end"
+            >
+              <ng-template>
+                <ion-content>
+                  <ion-list>
+                    <ion-item [button]="true" [detail]="false"
+                      >Nested option</ion-item
+                    >
+                    <ion-item [button]="true" [detail]="false"
+                      >Nested option</ion-item
+                    >
+                    <ion-item [button]="true" [detail]="false"
+                      >Nested option</ion-item
+                    >
+                  </ion-list>
+                </ion-content>
+              </ng-template>
+            </ion-popover>
+          </ion-list>
+        </ion-content>
+      </ng-template>
+    </ion-popover>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <ion-router-outlet></ion-router-outlet
+></ion-content>
+</div>
