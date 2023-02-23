@@ -1,5 +1,4 @@
 import { Flight } from 'src/app/models/flight';
-import {MockMessages} from "src/app/mocks/mockMessages";
 export const MockFlights: Flight[] = [
   {
     callSign: 'AF878',

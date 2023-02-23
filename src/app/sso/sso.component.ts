@@ -1,10 +1,27 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
+import { Router } from "@angular/router";
+import { AuthenticationService } from "../services/authentication.service";
 
-@Component({
-  selector: 'app-sso',
-  templateUrl: './sso.component.html',
-  styleUrls: ['./sso.component.scss']
-})
-export class SsoComponent {
 
+
+@Component({ templateUrl: 'login.component.html' })
+export class SsoComponent implements OnInit {
+  constructor(
+    public authService: AuthenticationService,
+    public router: Router
+  ) {}
+  ngOnInit() {}
+  logIn(email, password) {
+    this.authService.SignIn(email.value, password.value)
+      .then((res) => {
+        if(res == true) {
+          this.router.navigate(['dashboard']);          
+        } else {
+          window.alert('Email is not verified')
+          return false;
+        }
+      }).catch((error) => {
+        window.alert(error.message)
+      })
+  }
 }
